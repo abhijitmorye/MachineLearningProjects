@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Covid Chatbot</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static' , filename='css/style.css') }}">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="container_heading_box container_heading_box_updated">
+            <h4 class="container_heading">
+                Covid Symptoms Prediction
+            </h4>
+        </div>
+        {% if flag %}
+        <div class="response">
+            <p class="message">
+                {{response}}
+            </p>
+        </div>
+        {% endif %}
+        <div class="container_main">
+            <form action="/predictsymptoms" class="form_box" method='POST' , enctype='multipart/form-data'>
+                <div class="form_field">
+                    <label for="cough" class="form_label">Do you have cough?</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="cough" id="cough"
+                            value="1">
+                        <label class="form-check-label" for="cough">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="cough" id="cough"
+                            value="0">
+                        <label class="form-check-label" for="cough">No</label>
+                    </div>
+
+                    <!-- <select name="cough" id="cough" class="form_input">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select> -->
+                </div>
+                <div class="form_field">
+                    <label for="fever" class="form_label">Do you have fever?</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="fever" id="fever"
+                            value="1">
+                        <label class="form-check-label" for="fever">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="fever" id="fever"
+                            value="0">
+                        <label class="form-check-label" for="fever">No</label>
+                    </div>
+                    <!-- <select name="fever" id="fever" class="form_input">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select> -->
+                </div>
+                <div class="form_field">
+                    <label for="sore_throat" class="form_label">Do you have sore throat?</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="sore_throat" id="sore_throat"
+                            value="1">
+                        <label class="form-check-label" for="sore_throat">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="sore_throat" id="sore_throat"
+                            value="0">
+                        <label class="form-check-label" for="sore_throat">No</label>
+                    </div>
+                    <!-- <select name="sore_throat" id="sore_throat" class="form_input">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select> -->
+                </div>
+                <div class="form_field">
+                    <label for="shortness_of_breath" class="form_label">Do you feel any shortness in breath?</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="shortness_of_breath" id="shortness_of_breath"
+                            value="1">
+                        <label class="form-check-label" for="shortness_of_breath">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="shortness_of_breath" id="shortness_of_breath"
+                            value="0">
+                        <label class="form-check-label" for="shortness_of_breath">No</label>
+                    </div>
+                    <!-- <select name="shortness_of_breath" id="shortness_of_breath" class="form_input">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select> -->
+                </div>
+                <div class="form_field">
+                    <label for="head_ache" class="form_label">Do you have headache?</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="head_ache" id="head_ache"
+                            value="1">
+                        <label class="form-check-label" for="head_ache">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="head_ache" id="head_ache"
+                            value="0">
+                        <label class="form-check-label" for="head_ache">No</label>
+                    </div>
+                    <!-- <select name="head_ache" id="head_ache" class="form_input">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select> -->
+                </div>
+                <div class="form_field">
+                    <label for="age_60_and_above" class="form_label">Is your age above 60?</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="age_60_and_above" id="age_60_and_above"
+                            value="1">
+                        <label class="form-check-label" for="age_60_and_above">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="age_60_and_above" id="age_60_and_above"
+                            value="0">
+                        <label class="form-check-label" for="age_60_and_above">No</label>
+                    </div>
+                    <!-- <select name="age_60_and_above" id="age_60_and_above" class="form_input">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select> -->
+                </div>
+                <div class="form_field">
+                    <label for="gender" class="form_label">What is gender?</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="gender"
+                            value="1">
+                        <label class="form-check-label" for="gender">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="gender"
+                            value="0">
+                        <label class="form-check-label" for="gender">Female</label>
+                    </div>
+                    <!-- <select name="gender" id="age_60_and_above" class="form_input">
+                        <option value="1">Male</option>
+                        <option value="0">Female</option>
+                    </select> -->
+                </div>
+                <div class="form_field">
+                    <label for="test_indication" class="form_label">Do you have any travel history?</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="test_indication" id="test_indication"
+                            value="1">
+                        <label class="form-check-label" for="test_indication">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="test_indication" id="test_indication"
+                            value="0">
+                        <label class="form-check-label" for="test_indication">No</label>
+                    </div>
+                    <!-- <select name="test_indication" id="test_indication" class="form_input">
+                        <option value="1">Travelling abroad history</option>
+                        <option value="2">Come in contact with covid patient</option>
+                        <option value="0">Not applicable</option>
+                    </select> -->
+                </div>
+                <div class="form_field">
+                    <label for="contact" class="form_label">Have you come in contact with COVID-19 pateint?</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="contact" id="contact"
+                            value="1">
+                        <label class="form-check-label" for="contact">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="contact" id="contact"
+                            value="0">
+                        <label class="form-check-label" for="contact">No</label>
+                    </div>
+                    <!-- <select name="test_indication" id="test_indication" class="form_input">
+                        <option value="1">Travelling abroad history</option>
+                        <option value="2">Come in contact with covid patient</option>
+                        <option value="0">Not applicable</option>
+                    </select> -->
+                </div>
+                <div class="form_field">
+                    <input type="submit" class="form_button form_button_updated" value="Test symptoms">
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- <script src="/static/jquery.min.js" ></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+    <script>
+
+
+      jQuery(document).ready(function() {
+
+        $("#submit-button").click(function(e) {
+          e.preventDefault();
+          // $("#response").append("<br>Me: "+$("#question").val());
+          // $("#question").val("")
+          $.ajax({
+              type: "POST",
+              url: "/chatbot",
+              data: {
+                  question: $("#question").val()
+              },
+              success: function(result) {
+                $("#response").append("<br><strong style='color:red'>Me</strong>: "+$("#question").val()+ "<br><strong> CovBot</strong>: "+result.response);
+                $("#question").val("")
+                // $("#response").append("CovBot: "+result.response);
+                // $("#question").val("")
+              },
+              error: function(result) {
+                  alert('error');
+              }
+          });
+
+
+
+        });
+
+      });
+
+
+    </script> -->
+
+</body>
+
+</html>
