@@ -12,7 +12,8 @@ using BERT embedding and cosine similarity and gives answer to user.</li>
 </p>
 
 <br>
-<ul><b><h3>Technologies used</h3></b>
+<b><h3>Technologies used</h3></b>
+<ul>
 <li>Python</li>
 <li>Flask</li>
 <li>NLTK</li>
