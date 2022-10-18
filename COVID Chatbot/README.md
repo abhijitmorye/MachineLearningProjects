@@ -11,7 +11,7 @@ Embedding</li>
 using BERT embedding and cosine similarity and gives answer to user.</li>
 </p>
 
-<br><br><br>
+<br>
 <ul><b><h3>Technologies used</h3></b>
 <li>Python</li>
 <li>Flask</li>
