@@ -10,5 +10,12 @@ Embedding</li>
 <li>Designed a Flask application that takes user questions and maps with existing questions in the system
 using BERT embedding and cosine similarity and gives answer to user.</li>
 
+<ul><b>Technologies used –</b>
+<li>Python</li>
+<li>Flask</li>
+<li>NLTK</li>
+<li>BERT Embedding</li>
+<li>Python (seaborn, pandas)</li>
+
 </ul>
 </p>
